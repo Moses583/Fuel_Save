@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.OperationsFragment"
+    android:orientation="vertical">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/operationsContainer"
+        android:layout_below="@id/operationsTabs"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        app:tabMode="fixed"
+        app:tabContentStart="20dp"
+        android:id="@+id/operationsTabs"
+        android:layout_alignParentTop="true">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Pumps"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Cash"
+            />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Stock"
+            />
+
+    </com.google.android.material.tabs.TabLayout>
+
+</RelativeLayout>

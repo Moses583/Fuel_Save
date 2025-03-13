@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="@style/Widget.App.CardView.Elevated"
+    style="?attr/materialCardViewElevatedStyle"
     android:id="@+id/pumpCardView"
     android:layout_margin="10dp">
     <LinearLayout
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                style="@style/Widget.App.CardView.Outlined"
+                style="?attr/materialCardViewOutlinedStyle"
                 app:cardBackgroundColor="?attr/colorSurfaceContainerLow">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -75,7 +75,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.App.Button.Tonal"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:text="manage"
                 android:textStyle="bold"
                 android:layout_gravity="center"

@@ -56,16 +56,6 @@
 
         <item name="tabStyle">@style/Widget.App.TabLayout</item>
 
-        <item name="materialButtonStyle">@style/Widget.App.Button</item>
-        <item name="materialButtonOutlinedStyle">@style/Widget.App.Button.Outline</item>
-        <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
-
-        <item name="materialCardViewElevatedStyle">@style/Widget.App.CardView.Elevated</item>
-        <item name="materialCardViewFilledStyle">@style/Widget.App.CardView.Filled</item>
-        <item name="materialCardViewOutlinedStyle">@style/Widget.App.CardView.Outlined</item>
-
-        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
-
     </style>
 
     <style name="Widget.App.TabLayout" parent="Widget.Material3.TabLayout">
@@ -73,53 +63,5 @@
         <item name="tabIndicatorFullWidth">false</item>
         <item name="tabIndicatorGravity">bottom</item>
         <item name="tabIndicator">@drawable/my_tab_indicator</item>
-    </style>
-
-    <style name="Widget.App.Button" parent="Widget.Material3.Button">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Button</item>
-    </style>
-    <style name="Widget.App.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Button</item>
-    </style>
-    <style name="Widget.App.Button.Elevated" parent="Widget.Material3.Button.ElevatedButton">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Button</item>
-    </style>
-    <style name="Widget.App.Button.Outline" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Button</item>
-    </style>
-
-    <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Button</item>
-    </style>
-
-    <style name="Widget.App.CardView.Filled" parent="Widget.Material3.CardView.Filled">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Corner.Medium</item>
-    </style>
-
-    <style name="Widget.App.CardView.Elevated" parent="Widget.Material3.CardView.Elevated">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Corner.Medium</item>
-    </style>
-
-    <style name="Widget.App.CardView.Outlined" parent="Widget.Material3.CardView.Outlined">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Corner.Medium</item>
-    </style>
-
-    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="shapeAppearance">@style/ShapeAppearance.App.Corner.ExtraSmall</item>
-    </style>
-
-    <style name="ShapeAppearance.App.Corner.Medium" parent="ShapeAppearance.Material3.Corner.Medium">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">8dp</item>
-    </style>
-
-    <style name="ShapeAppearance.App.Corner.ExtraSmall" parent="ShapeAppearance.Material3.Corner.ExtraSmall">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">4dp</item>
-    </style>
-
-    <style name="ShapeAppearance.App.Button" parent="">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">8dp</item>
     </style>
 </resources>

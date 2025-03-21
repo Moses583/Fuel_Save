@@ -62,8 +62,8 @@ public class CashAdapter extends RecyclerView.Adapter<CashAdapter.CashViewHolder
 
         void setCashData(Cash cash){
             binding.cashEntityName.setText(cash.name);
-            binding.cashAmount.setText("Last payment: "+cash.amount);
-            binding.partyInvolved.setText("Made by: "+cash.party);
+            binding.partyInvolved.setText("Total amount : "+cash.accumulated);
+            binding.cashAmount.setText("Last record : "+cash.amount);
         }
     }
 

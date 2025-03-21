@@ -34,7 +34,6 @@ public class RecordPaymentActivity extends AppCompatActivity {
         helper = new DBHelper(this);
         showData(getPayment(cash.name));
         one = binding.layoutEnterAmount.getEditText();
-        two = binding.layoutEnterParty.getEditText();
         binding.btnLogPayment.setOnClickListener(v->{
             makeEntry(cash.name,cash.accumulated);
         });
@@ -43,14 +42,12 @@ public class RecordPaymentActivity extends AppCompatActivity {
     private void showData(Cash payment) {
         binding.namePayment.setText(payment.name);
         binding.amountPayment.setText(payment.amount);
-        binding.partyPayment.setText(payment.party);
         binding.amountPaymentTotal.setText(payment.accumulated);
     }
 
     private void makeEntry(String name, String accumulated) {
         amount = one.getText().toString();
-        party = two.getText().toString();
-        boolean success = helper.updatePayments(name,amount,party,accumulated);
+        boolean success = helper.updatePayments(name,amount,accumulated);
         if (success){
             showToasts("Successful");
             showData(getPayment(binding.namePayment.getText().toString()));
@@ -68,9 +65,8 @@ public class RecordPaymentActivity extends AppCompatActivity {
             while (cursor.moveToNext()){
                 String name = cursor.getString(1);
                 String lastAmount = cursor.getString(2);
-                String party = cursor.getString(3);
-                String accumulated = cursor.getString(4);
-                cash = new Cash(name,lastAmount,party,accumulated);
+                String accumulated = cursor.getString(3);
+                cash = new Cash(name,lastAmount,accumulated);
             }
         }
         return cash;

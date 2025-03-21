@@ -45,9 +45,9 @@ public class CashFragment extends Fragment {
         helper = new DBHelper(requireContext());
         cashList = getPayments();
         if (cashList.isEmpty()){
-            helper.insertCash("Bank deposits","0","None","0");
-            helper.insertCash("Credits","0","None","0");
-            helper.insertCash("Till payments","0","None","0");
+            helper.insertCash("Bank deposits","0","0");
+            helper.insertCash("Credits","0","0");
+            helper.insertCash("Till payments","0","0");
             cashList = getPayments();
         }
 
@@ -81,9 +81,8 @@ public class CashFragment extends Fragment {
             while (cursor.moveToNext()){
                 String name = cursor.getString(1);
                 String amount = cursor.getString(2);
-                String party = cursor.getString(3);
-                String accumulated = cursor.getString(4);
-                dummy.add(new Cash(name, amount, party,accumulated));
+                String accumulated = cursor.getString(3);
+                dummy.add(new Cash(name, amount, accumulated));
             }
         }
         return dummy;
@@ -104,7 +103,7 @@ public class CashFragment extends Fragment {
     private final CreatePayment createPayment = new CreatePayment() {
         @Override
         public void createPayment(String name) {
-            helper.insertCash(name,"0","None","0");
+            helper.insertCash(name,"0","0");
             cashList = getPayments();
             adapter.setCash(cashList);
         }

@@ -10,13 +10,13 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(@Nullable Context context) {
-        super(context,"Five.db", null, 1);
+        super(context,"Six.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table Pumps(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, prevSale TEXT,prevLitre TEXT, totalSale TEXT, totalLitre TEXT,image INTEGER)");
-        db.execSQL("create table CashPayments(id INTEGER PRIMARY KEY AUTOINCREMENT, cashName TEXT, lastAmount TEXT, party TEXT, accumulated TEXT)");
+        db.execSQL("create table CashPayments(id INTEGER PRIMARY KEY AUTOINCREMENT, cashName TEXT, lastAmount TEXT, accumulated TEXT)");
     }
 
     @Override
@@ -38,12 +38,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean insertCash( String name, String amount, String party, String accumulated){
+    public boolean insertCash( String name, String amount, String accumulated){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("cashName",name);
         contentValues.put("lastAmount",amount);
-        contentValues.put("party",party);
         contentValues.put("accumulated",accumulated);
         long result = database.insert("CashPayments",null,contentValues);
         return result != -1;
@@ -74,7 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean updatePayments(String name, String amount, String party, String accumulated){
+    public boolean updatePayments(String name, String amount, String accumulated){
         SQLiteDatabase db = this.getWritableDatabase();
 
         double amount1 = Double.parseDouble(amount);
@@ -85,7 +84,6 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("lastAmount",amount);
         contentValues.put("accumulated",finalTotal);
-        contentValues.put("party",party);
 
         String whereClause = "cashName" + " = ?";
         String[] whereArgs = {name};

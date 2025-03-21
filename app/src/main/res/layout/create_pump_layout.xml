@@ -1,81 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:scrollbars="none">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose pump type"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-    <com.google.android.material.chip.ChipGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/selectPump"
-        app:singleSelection="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="10dp">
-        <com.google.android.material.chip.Chip
+        android:orientation="vertical">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Petrol"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:checked="true"
-            android:id="@+id/chipPetrol"/>
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Diesel"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:checked="false"
-            android:id="@+id/chipDiesel"/>
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Premium"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:checked="false"
-            android:id="@+id/chipPremium"/>
-        <com.google.android.material.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kerosene"
-            style="@style/Widget.Material3.Chip.Filter"
-            android:checked="false"
-            android:id="@+id/chipKerosene"/>
-    </com.google.android.material.chip.ChipGroup>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter pump name"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="10dp"/>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/enterPumpName"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
-        android:hint="E.g., Petrol 1">
-        <com.google.android.material.textfield.TextInputEditText
+            android:text="Choose pump type"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <com.google.android.material.chip.ChipGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:id="@+id/selectPump"
+            app:singleSelection="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp">
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Petrol"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:checked="true"
+                android:id="@+id/chipPetrol"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diesel"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:checked="false"
+                android:id="@+id/chipDiesel"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Premium"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:checked="false"
+                android:id="@+id/chipPremium"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kerosene"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:checked="false"
+                android:id="@+id/chipKerosene"/>
+        </com.google.android.material.chip.ChipGroup>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter pump name"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="10dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/enterPumpName"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:hint="E.g., Petrol 1">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
 
-</LinearLayout>
+</ScrollView>

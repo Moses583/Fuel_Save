@@ -63,7 +63,6 @@ public class MakeEntryActivity extends AppCompatActivity {
                 pump = new Pump(name,prevLitre,prevSale, totalLitre, totalSale, image);
             }
         }
-
         return pump;
     }
 

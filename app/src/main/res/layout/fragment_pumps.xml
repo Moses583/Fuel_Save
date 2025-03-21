@@ -11,12 +11,13 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:layout_margin="10dp"
-        android:textSize="22sp"
-        android:text="My pumps"
+        android:textSize="18sp"
+        android:text="Pump management"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
-        android:id="@+id/myPumps"/>
+        android:id="@+id/myPumps"
+        android:textColor="?attr/colorPrimary"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

@@ -10,17 +10,19 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(@Nullable Context context) {
-        super(context,"One.db", null, 1);
+        super(context,"Five.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table Pumps(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, prevSale TEXT,prevLitre TEXT, totalSale TEXT, totalLitre TEXT,image INTEGER)");
+        db.execSQL("create table CashPayments(id INTEGER PRIMARY KEY AUTOINCREMENT, cashName TEXT, lastAmount TEXT, party TEXT, accumulated TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists Pumps");
+        db.execSQL("drop table if exists CashPayments");
     }
 
     public boolean insertPumps( String name, String sale, String amount, String totalAmounts, String totalSales, int image){
@@ -33,6 +35,17 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("totalLitre",totalAmounts);
         contentValues.put("image",image);
         long result = database.insert("Pumps",null,contentValues);
+        return result != -1;
+    }
+
+    public boolean insertCash( String name, String amount, String party, String accumulated){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("cashName",name);
+        contentValues.put("lastAmount",amount);
+        contentValues.put("party",party);
+        contentValues.put("accumulated",accumulated);
+        long result = database.insert("CashPayments",null,contentValues);
         return result != -1;
     }
 
@@ -61,6 +74,26 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    public boolean updatePayments(String name, String amount, String party, String accumulated){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        double amount1 = Double.parseDouble(amount);
+        double accumulated1 = Double.parseDouble(accumulated);
+        double newTotal = amount1 + accumulated1;
+        String finalTotal = String.format("%.2f",newTotal);
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("lastAmount",amount);
+        contentValues.put("accumulated",finalTotal);
+        contentValues.put("party",party);
+
+        String whereClause = "cashName" + " = ?";
+        String[] whereArgs = {name};
+
+        long result = db.update("CashPayments",contentValues,whereClause,whereArgs);
+        return result != -1;
+    }
+
     public Cursor getPump(String name){
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("Select * from Pumps where name = ?", new String[]{name});
@@ -69,5 +102,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getPumps(){
         SQLiteDatabase database = this.getReadableDatabase();
         return database.rawQuery("Select * from Pumps ORDER BY id ASC",null);
+    }
+
+    public Cursor getPayment(String name){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("Select * from CashPayments where cashName = ?", new String[]{name});
+    }
+
+    public Cursor getPayments(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        return database.rawQuery("Select * from CashPayments ORDER BY id ASC",null);
     }
 }

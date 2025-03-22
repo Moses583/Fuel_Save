@@ -1,7 +1,6 @@
 package com.ravemaster.fuelsave.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ravemaster.fuelsave.activities.MakeEntryActivity;
+import com.google.android.material.card.MaterialCardView;
 import com.ravemaster.fuelsave.interfaces.MakeEntry;
 import com.ravemaster.fuelsave.models.Pump;
 import com.ravemaster.fuelsave.R;
@@ -55,7 +54,7 @@ public class PumpAdapter extends RecyclerView.Adapter<PumpAdapter.PumpViewHolder
         holder.txtName.setSelected(true);
         holder.txtTotalSales.setText(totalSales);
         holder.txtTotalLitres.setText(totalLitres);
-        holder.button.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makeEntry.makeEntry(pumpList.get(holder.getAdapterPosition()));
@@ -71,14 +70,14 @@ public class PumpAdapter extends RecyclerView.Adapter<PumpAdapter.PumpViewHolder
     public static class PumpViewHolder extends RecyclerView.ViewHolder {
         ImageView pump;
         TextView txtTotalSales, txtTotalLitres, txtName;
-        Button button;
+        MaterialCardView cardView;
         public PumpViewHolder(@NonNull View itemView) {
             super(itemView);
             pump = itemView.findViewById(R.id.imgPump);
             txtName = itemView.findViewById(R.id.txtPumpName);
             txtTotalSales = itemView.findViewById(R.id.txtTotalSales);
             txtTotalLitres = itemView.findViewById(R.id.txtTotalLitres);
-            button = itemView.findViewById(R.id.btnLog);
+            cardView = itemView.findViewById(R.id.pumpCardView);
         }
     }
 }

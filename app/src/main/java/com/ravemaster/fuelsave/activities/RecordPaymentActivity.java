@@ -22,7 +22,7 @@ public class RecordPaymentActivity extends AppCompatActivity {
     String amount = "";
     String party = "";
     DBHelper helper;
-    EditText one,two;
+    EditText one;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class RecordPaymentActivity extends AppCompatActivity {
         amount = one.getText().toString();
         boolean success = helper.updatePayments(name,amount,accumulated);
         if (success){
-            showToasts("Successful");
+            showToasts("Entry made successfully!");
             showData(getPayment(binding.namePayment.getText().toString()));
         } else {
             showToasts("Failed");

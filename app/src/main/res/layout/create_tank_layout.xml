@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose pump type"
+            android:text="Choose tank type"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginStart="15dp"
@@ -23,7 +23,7 @@
         <com.google.android.material.chip.ChipGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/selectPump"
+            android:id="@+id/selectTank"
             app:singleSelection="true"
             android:layout_marginBottom="10dp"
             android:layout_marginStart="15dp"
@@ -34,33 +34,33 @@
                 android:text="Petrol"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:checked="true"
-                android:id="@+id/chipPetrol"/>
+                android:id="@+id/chipTankPetrol"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Diesel"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:checked="false"
-                android:id="@+id/chipDiesel"/>
+                android:id="@+id/chipTankDiesel"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Premium"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:checked="false"
-                android:id="@+id/chipPremium"/>
+                android:id="@+id/chipTankPremium"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kerosene"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:checked="false"
-                android:id="@+id/chipKerosene"/>
+                android:id="@+id/chipTankKerosene"/>
         </com.google.android.material.chip.ChipGroup>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter pump name"
+            android:text="Enter tank name"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginStart="15dp"
@@ -68,7 +68,29 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/enterPumpName"
+            android:id="@+id/enterTankName"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:hint="E.g., Petrol 1">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter initial stock"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="10dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/enterTankInitialStock"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"

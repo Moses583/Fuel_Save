@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="?attr/materialCardViewElevatedStyle"
+    android:layout_margin="10dp"
+    android:id="@+id/stockCard"
+    android:clickable="true"
+    android:focusable="true"
+    android:checkable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stockName"
+            android:text="Stock name"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Initial stock: "
+            android:layout_alignParentStart="true"
+            android:id="@+id/txtInitialDummy1"
+            android:layout_below="@id/stockName"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current stock: "
+            android:layout_alignParentStart="true"
+            android:id="@+id/txtCurrentDummy1"
+            android:layout_below="@id/txtInitialDummy1"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stockInitial"
+            android:layout_toEndOf="@id/txtInitialDummy1"
+            android:layout_below="@id/stockName"
+            android:layout_marginBottom="10dp"
+            android:text="Initial level"
+            android:layout_marginStart="10dp"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stockCurrent"
+            android:layout_toEndOf="@id/txtCurrentDummy1"
+            android:layout_below="@id/stockInitial"
+            android:layout_marginBottom="10dp"
+            android:text="Current level"
+            android:layout_marginStart="10dp"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

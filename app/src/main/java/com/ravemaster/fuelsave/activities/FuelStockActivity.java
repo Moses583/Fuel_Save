@@ -22,7 +22,6 @@ public class FuelStockActivity extends AppCompatActivity {
 
     ActivityFuelStockBinding binding;
     String amount = "";
-    String party = "";
     DBHelper helper;
     EditText one;
 
@@ -35,7 +34,7 @@ public class FuelStockActivity extends AppCompatActivity {
         Fuel fuel = (Fuel) getIntent().getSerializableExtra("fuel");
         helper = new DBHelper(this);
         showData(getFuel(fuel.fuelName));
-        one = binding.enterAddedStock.getEditText();
+        one = binding.enterAddedFuelStock.getEditText();
         binding.btnLogTank.setOnClickListener(v->{
             makeEntry(fuel.fuelName, fuel.currentStock,"1000");
         });
@@ -63,7 +62,6 @@ public class FuelStockActivity extends AppCompatActivity {
         Cursor cursor = helper.getFuel(fuelName);
         Fuel fuel = null;
         if (cursor.getCount() == 0){
-            showToasts("There is no such tank!");
         } else {
             while (cursor.moveToNext()){
                 String name = cursor.getString(1);

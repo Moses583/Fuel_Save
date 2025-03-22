@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.FuelStockActivity"
+    tools:context=".activities.InventoryActivity"
     android:fitsSystemWindows="true"
     android:scrollbars="none">
 
@@ -20,7 +20,7 @@
             android:text=""
             android:textSize="22sp"
             android:textStyle="bold"
-            android:id="@+id/nameTank"
+            android:id="@+id/nameStock"
             android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="10dp"/>
@@ -34,51 +34,41 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:id="@+id/imageTank"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/imageTank"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:text="Initial stock:"
-                    android:id="@+id/amountDummy1"/>
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/amountDummy11"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/colorPrimary"
                     android:textStyle="bold"
-                    android:id="@+id/initialTank"
+                    android:id="@+id/initialStock"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_below="@id/amountDummy1"
-                    android:layout_toEndOf="@id/imageTank"/>
+                    android:layout_below="@id/amountDummy11"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/imageTank"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
                     android:text="Current stock:"
-                    android:id="@+id/salesDummy1"
-                    android:layout_below="@id/initialTank"/>
+                    android:id="@+id/salesDummy11"
+                    android:layout_below="@id/initialStock"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/colorPrimary"
                     android:textStyle="bold"
-                    android:id="@+id/currentTank"
+                    android:id="@+id/currentStock"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_below="@id/salesDummy1"
-                    android:layout_toEndOf="@id/imageTank"/>
+                    android:layout_below="@id/salesDummy11"/>
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -93,7 +83,7 @@
             android:layout_height="wrap_content"
             android:textColor="?attr/colorPrimary"
             android:textStyle="bold"
-            android:id="@+id/addedTank"
+            android:id="@+id/addedStock"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="10dp"/>
 
@@ -108,7 +98,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/enterAddedFuelStock"
+            android:id="@+id/enterAddedStock"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"
@@ -125,7 +115,7 @@
             android:layout_gravity="end"
             android:layout_marginEnd="15dp"
             android:text="Log"
-            android:id="@+id/btnLogTank"
+            android:id="@+id/btnLogStock"
             android:layout_marginBottom="10dp"/>
     </LinearLayout>
 

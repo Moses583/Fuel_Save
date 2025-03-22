@@ -64,7 +64,7 @@ public class StockFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 new CreateTankFragment(create).show(
-                        getChildFragmentManager(),CreatePumpFragment.TAG
+                        getChildFragmentManager(),CreateStockFragment.TAG
                 );
             }
         });
@@ -107,7 +107,6 @@ public class StockFragment extends Fragment {
         Cursor cursor = helper.getFuelStocks();
         List<Fuel> dummy = new ArrayList<>();
         if (cursor.getCount() == 0){
-            Toast.makeText(requireContext(), "No fuels available", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
                 String name = cursor.getString(1);

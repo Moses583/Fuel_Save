@@ -76,7 +76,6 @@ public class CashFragment extends Fragment {
         Cursor cursor = helper.getPayments();
         List<Cash> dummy = new ArrayList<>();
         if (cursor.getCount() == 0){
-            showToasts("error");
         } else {
             while (cursor.moveToNext()){
                 String name = cursor.getString(1);

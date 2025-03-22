@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FuelSave"
         tools:targetApi="31">
         <activity
+            android:name=".activities.InventoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.FuelStockActivity"
             android:exported="false" />
         <activity
@@ -20,7 +23,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.MakeEntryActivity"
+            android:name=".activities.PumpActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

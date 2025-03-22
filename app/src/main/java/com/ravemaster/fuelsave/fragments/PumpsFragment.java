@@ -13,10 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.ravemaster.fuelsave.activities.MakeEntryActivity;
+import com.ravemaster.fuelsave.activities.PumpActivity;
 import com.ravemaster.fuelsave.database.DBHelper;
 import com.ravemaster.fuelsave.interfaces.ViewPump;
 import com.ravemaster.fuelsave.models.Pump;
@@ -105,7 +104,7 @@ public class PumpsFragment extends Fragment {
     private final ViewPump viewPump = new ViewPump() {
         @Override
         public void viewPump(Pump pump) {
-            Intent intent = new Intent(requireContext(), MakeEntryActivity.class);
+            Intent intent = new Intent(requireContext(), PumpActivity.class);
             intent.putExtra("pump",pump);
             requireContext().startActivity(intent);
         }
@@ -115,7 +114,6 @@ public class PumpsFragment extends Fragment {
         Cursor cursor = helper.getPumps();
         List<Pump> dummy = new ArrayList<>();
         if (cursor.getCount() == 0){
-            Toast.makeText(requireContext(), "No pumps available", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
                 String name = cursor.getString(1);

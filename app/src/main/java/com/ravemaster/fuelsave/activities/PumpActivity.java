@@ -17,7 +17,7 @@ import com.ravemaster.fuelsave.R;
 import com.ravemaster.fuelsave.database.DBHelper;
 import com.ravemaster.fuelsave.models.Pump;
 
-public class MakeEntryActivity extends AppCompatActivity {
+public class PumpActivity extends AppCompatActivity {
 
     ImageView imageView;
     TextView totalAmount, totalSales, lastAmount, lastSale, name;
@@ -32,7 +32,7 @@ public class MakeEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_make_entry);
+        setContentView(R.layout.activity_pump);
         helper = new DBHelper(this);
         Pump pump = (Pump) getIntent().getSerializableExtra("pump");
         initViews();
@@ -51,7 +51,6 @@ public class MakeEntryActivity extends AppCompatActivity {
         Cursor cursor = helper.getPump(pumpName);
         Pump pump = null;
         if (cursor.getCount() == 0){
-            Toast.makeText(this, "There is no such pump!", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
                 String name = cursor.getString(1);

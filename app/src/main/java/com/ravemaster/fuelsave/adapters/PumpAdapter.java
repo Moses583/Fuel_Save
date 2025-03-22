@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
-import com.ravemaster.fuelsave.interfaces.MakeEntry;
+import com.ravemaster.fuelsave.interfaces.ViewPump;
 import com.ravemaster.fuelsave.models.Pump;
 import com.ravemaster.fuelsave.R;
 
@@ -24,11 +23,11 @@ public class PumpAdapter extends RecyclerView.Adapter<PumpAdapter.PumpViewHolder
     Context context;
     List<Pump> pumpList = new ArrayList<>();
     FragmentManager manager;
-    MakeEntry makeEntry;
+    ViewPump viewPump;
 
-    public PumpAdapter(Context context, MakeEntry makeEntry) {
+    public PumpAdapter(Context context, ViewPump viewPump) {
         this.context = context;
-        this.makeEntry = makeEntry;
+        this.viewPump = viewPump;
     }
 
     public void setPumpList(List<Pump> pumpList) {
@@ -57,7 +56,7 @@ public class PumpAdapter extends RecyclerView.Adapter<PumpAdapter.PumpViewHolder
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeEntry.makeEntry(pumpList.get(holder.getAdapterPosition()));
+                viewPump.viewPump(pumpList.get(holder.getAdapterPosition()));
             }
         });
     }

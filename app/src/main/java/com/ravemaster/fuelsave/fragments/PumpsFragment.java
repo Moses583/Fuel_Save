@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ravemaster.fuelsave.activities.MakeEntryActivity;
 import com.ravemaster.fuelsave.database.DBHelper;
-import com.ravemaster.fuelsave.interfaces.MakeEntry;
+import com.ravemaster.fuelsave.interfaces.ViewPump;
 import com.ravemaster.fuelsave.models.Pump;
 import com.ravemaster.fuelsave.R;
 import com.ravemaster.fuelsave.adapters.PumpAdapter;
@@ -43,7 +43,7 @@ public class PumpsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pumpAdapter = new PumpAdapter(requireContext(), makeEntry);
+        pumpAdapter = new PumpAdapter(requireContext(), viewPump);
         pumpList = new ArrayList<>();
         helper = new DBHelper(requireContext());
         pumpList = getPumps();
@@ -102,9 +102,9 @@ public class PumpsFragment extends Fragment {
         }
     };
 
-    private final MakeEntry makeEntry = new MakeEntry() {
+    private final ViewPump viewPump = new ViewPump() {
         @Override
-        public void makeEntry(Pump pump) {
+        public void viewPump(Pump pump) {
             Intent intent = new Intent(requireContext(), MakeEntryActivity.class);
             intent.putExtra("pump",pump);
             requireContext().startActivity(intent);

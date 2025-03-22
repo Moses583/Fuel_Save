@@ -48,9 +48,9 @@ public class PumpsFragment extends Fragment {
         helper = new DBHelper(requireContext());
         pumpList = getPumps();
         if (pumpList.isEmpty()){
-            helper.insertPumps("Petrol","0","0","0","0",R.drawable.ic_pump_one);
-            helper.insertPumps("Diesel","0","0","0","0",R.drawable.ic_pump_two);
-            helper.insertPumps("Premium","0","0","0","0",R.drawable.ic_pump_three);
+            helper.insertPumps("Petrol 1","0","0","0","0",R.drawable.ic_pump_one);
+            helper.insertPumps("Diesel 1","0","0","0","0",R.drawable.ic_pump_two);
+            helper.insertPumps("Premium 1","0","0","0","0",R.drawable.ic_pump_three);
             pumpList = getPumps();
         }
 

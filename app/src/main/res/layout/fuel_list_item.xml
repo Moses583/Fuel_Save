@@ -1,86 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     style="?attr/materialCardViewElevatedStyle"
-    android:id="@+id/pumpCardView"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:id="@+id/fuelStockCard"
+    android:clickable="true"
+    android:focusable="true"
+    android:checkable="true">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pump name"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@id/imgPump"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:singleLine="true"
-            android:scrollHorizontally="true"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:id="@+id/txtPumpName"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
-
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:id="@+id/imgPump"
-            android:layout_margin="10dp"
             android:layout_alignParentStart="true"
+            android:layout_margin="10dp"
+            android:id="@+id/tankImage"
             android:layout_centerVertical="true"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total sales: "
-            android:layout_gravity="center"
-            android:id="@+id/txtSalesDummy"
-            android:layout_below="@id/txtPumpName"
-            android:layout_toEndOf="@id/imgPump"
+            android:id="@+id/tankName"
+            android:text="Tank name"
+            android:layout_toEndOf="@id/tankImage"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total litres: "
-            android:layout_gravity="center"
-            android:id="@+id/txtLitresDummy"
-            android:layout_below="@id/txtSalesDummy"
-            android:layout_toEndOf="@id/imgPump"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="12345678"
-            android:layout_gravity="center"
-            android:id="@+id/txtTotalSales"
-            android:layout_below="@id/txtPumpName"
-            android:layout_toEndOf="@id/txtSalesDummy"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginStart="10dp"
-            android:textColor="?attr/colorPrimary"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12345678"
-            android:id="@+id/txtTotalLitres"
-            android:layout_below="@id/txtTotalSales"
-            android:layout_toEndOf="@id/txtLitresDummy"
+            android:text="Initial stock: "
+            android:layout_gravity="center"
+            android:id="@+id/txtInitialDummy"
+            android:layout_below="@id/tankName"
+            android:layout_toEndOf="@id/tankImage"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current stock: "
+            android:layout_gravity="center"
+            android:id="@+id/txtCurrentDummy"
+            android:layout_below="@id/txtInitialDummy"
+            android:layout_toEndOf="@id/tankImage"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tankInitial"
+            android:layout_toEndOf="@id/txtInitialDummy"
+            android:layout_below="@id/tankName"
+            android:layout_marginBottom="10dp"
+            android:text="Initial level"
+            android:layout_marginStart="10dp"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tankCurrent"
+            android:layout_toEndOf="@id/txtCurrentDummy"
+            android:layout_below="@id/tankInitial"
+            android:layout_marginBottom="10dp"
+            android:text="Current level"
             android:layout_marginStart="10dp"
             android:textColor="?attr/colorPrimary"
             android:textStyle="bold"/>
     </RelativeLayout>
+
 
 
 </com.google.android.material.card.MaterialCardView>

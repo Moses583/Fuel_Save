@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MakeEntryActivity"
+    tools:context=".activities.FuelStockActivity"
     android:fitsSystemWindows="true"
     android:scrollbars="none">
 
@@ -20,7 +20,7 @@
             android:text=""
             android:textSize="22sp"
             android:textStyle="bold"
-            android:id="@+id/namePump"
+            android:id="@+id/nameTank"
             android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="10dp"/>
@@ -37,48 +37,48 @@
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:id="@+id/imagePump"
+                    android:id="@+id/imageTank"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginBottom="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/imagePump"
+                    android:layout_toEndOf="@id/imageTank"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Total litres sold:"
-                    android:id="@+id/amountDummy"/>
+                    android:text="Initial stock:"
+                    android:id="@+id/amountDummy1"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="?attr/colorPrimary"
                     android:textStyle="bold"
-                    android:id="@+id/txtLitresTotal"
+                    android:id="@+id/initialTank"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_below="@id/amountDummy"
-                    android:layout_toEndOf="@id/imagePump"
-                    android:textColor="?attr/colorPrimary"/>
+                    android:layout_below="@id/amountDummy1"
+                    android:layout_toEndOf="@id/imageTank"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/imagePump"
+                    android:layout_toEndOf="@id/imageTank"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Total sales:"
-                    android:id="@+id/salesDummy"
-                    android:layout_below="@id/txtLitresTotal"/>
+                    android:text="Current stock:"
+                    android:id="@+id/salesDummy1"
+                    android:layout_below="@id/initialTank"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="?attr/colorPrimary"
                     android:textStyle="bold"
-                    android:id="@+id/txtSalesTotal"
+                    android:id="@+id/currentTank"
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_below="@id/salesDummy"
-                    android:layout_toEndOf="@id/imagePump"
-                    android:textColor="?attr/colorPrimary"/>
+                    android:layout_below="@id/salesDummy1"
+                    android:layout_toEndOf="@id/imageTank"/>
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -91,30 +91,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/colorPrimary"
             android:textStyle="bold"
-            android:id="@+id/txtLitresToday"
+            android:id="@+id/addedTank"
             android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="?attr/colorPrimary"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"
-            android:text="Last sale logged:"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:id="@+id/txtSalesToday"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="?attr/colorPrimary"/>
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Litres today"
+            android:text="Add new stock"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginStart="15dp"
@@ -122,32 +108,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/enterLitres"
+            android:id="@+id/enterAddedStock"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"
-            android:hint="Amount">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sales today"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"/>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/enterSales"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="10dp"
-            android:hint="Sales">
+            android:hint="Amount e.g, 20,000 litres">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -160,7 +125,7 @@
             android:layout_gravity="end"
             android:layout_marginEnd="15dp"
             android:text="Log"
-            android:id="@+id/btnEnter"
+            android:id="@+id/btnLogTank"
             android:layout_marginBottom="10dp"/>
     </LinearLayout>
 

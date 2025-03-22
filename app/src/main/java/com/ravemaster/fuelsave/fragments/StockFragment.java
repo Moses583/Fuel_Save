@@ -46,12 +46,6 @@ public class StockFragment extends Fragment {
         fuelList = new ArrayList<>();
         helper = new DBHelper(requireContext());
         fuelList = getFuelStock();
-        if (fuelList.isEmpty()){
-            helper.insertFuelStock("Petrol 1","0","0","0",R.drawable.ic_tanker_one);
-            helper.insertFuelStock("Diesel 1","0","0","0",R.drawable.ic_tanker_two);
-            helper.insertFuelStock("Premium 1","0","0","0",R.drawable.ic_tanker_three);
-            fuelList = getFuelStock();
-        }
     }
 
     @Override

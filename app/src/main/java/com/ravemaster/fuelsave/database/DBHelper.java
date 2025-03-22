@@ -203,4 +203,28 @@ public class DBHelper extends SQLiteOpenHelper {
         return database.rawQuery("Select * from Stock ORDER BY id ASC",null);
     }
 
+    public Boolean deletePump(String name) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        long result = DB.delete("Pumps", "name=?", new String[]{name});
+        return result != -1;
+    }
+
+    public Boolean deleteCash(String name) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        long result = DB.delete("CashPayments", "cashName=?", new String[]{name});
+        return result != -1;
+    }
+
+    public Boolean deleteTank(String name) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        long result = DB.delete("FuelStock", "fuelName=?", new String[]{name});
+        return result != -1;
+    }
+
+    public Boolean deleteStock(String name) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        long result = DB.delete("Stock", "stockName=?", new String[]{name});
+        return result != -1;
+    }
+
 }

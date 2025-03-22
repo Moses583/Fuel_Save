@@ -2,11 +2,14 @@ package com.ravemaster.fuelsave.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ravemaster.fuelsave.database.DBHelper;
 import com.ravemaster.fuelsave.databinding.FuelListItemBinding;
 import com.ravemaster.fuelsave.interfaces.ViewFuel;
 import com.ravemaster.fuelsave.models.Fuel;
@@ -45,6 +48,26 @@ public class FuelAdapter extends RecyclerView.Adapter<FuelAdapter.FuelViewHolder
         holder.binding.fuelStockCard.setOnClickListener(v->{
             viewFuel.viewFuel(fuelList.get(holder.getAdapterPosition()));
         });
+        holder.binding.fuelStockCard.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                delete(holder.getAdapterPosition(),fuelList.get(holder.getAdapterPosition()).fuelName);
+                return true;
+            }
+        });
+    }
+
+    public void delete(int itemId, String name){
+        DBHelper helper = new DBHelper(context);
+        boolean checkDelete = helper.deleteTank(name);
+        if (checkDelete){
+            Toast.makeText(context, "Tank deleted successfully", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "unable to delete tank", Toast.LENGTH_SHORT).show();
+        }
+        fuelList.remove(itemId);
+        notifyItemRemoved(itemId);
     }
 
     @Override

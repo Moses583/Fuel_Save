@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ravemaster.fuelsave.database.DBHelper;
 import com.ravemaster.fuelsave.databinding.CashListItemBinding;
 import com.ravemaster.fuelsave.interfaces.ViewCash;
 import com.ravemaster.fuelsave.models.Cash;
@@ -46,11 +48,31 @@ public class CashAdapter extends RecyclerView.Adapter<CashAdapter.CashViewHolder
         holder.binding.cashEntityLayout.setOnClickListener(v->{
             viewCash.viewCash(cashList.get(holder.getAdapterPosition()));
         });
+        holder.binding.cashEntityLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                delete(holder.getAdapterPosition(), cashList.get(holder.getAdapterPosition()).name);
+                return true;
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return cashList.size();
+    }
+
+    public void delete(int itemId, String name){
+        DBHelper helper = new DBHelper(context);
+        boolean checkDelete = helper.deleteCash(name);
+        if (checkDelete){
+            Toast.makeText(context, "Payment deleted successfully", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "unable to delete payment", Toast.LENGTH_SHORT).show();
+        }
+        cashList.remove(itemId);
+        notifyItemRemoved(itemId);
     }
 
     class CashViewHolder extends RecyclerView.ViewHolder {

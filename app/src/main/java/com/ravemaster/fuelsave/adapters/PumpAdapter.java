@@ -6,12 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.ravemaster.fuelsave.database.DBHelper;
 import com.ravemaster.fuelsave.interfaces.ViewPump;
 import com.ravemaster.fuelsave.models.Pump;
 import com.ravemaster.fuelsave.R;
@@ -59,11 +61,31 @@ public class PumpAdapter extends RecyclerView.Adapter<PumpAdapter.PumpViewHolder
                 viewPump.viewPump(pumpList.get(holder.getAdapterPosition()));
             }
         });
+        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                delete(holder.getAdapterPosition(),pumpList.get(holder.getAdapterPosition()).getName());
+                return true;
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return pumpList.size();
+    }
+
+    public void delete(int itemId, String name){
+        DBHelper helper = new DBHelper(context);
+        boolean checkDelete = helper.deletePump(name);
+        if (checkDelete){
+            Toast.makeText(context, "Pump deleted successfully", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "unable to delete pump", Toast.LENGTH_SHORT).show();
+        }
+        pumpList.remove(itemId);
+        notifyItemRemoved(itemId);
     }
 
     public static class PumpViewHolder extends RecyclerView.ViewHolder {

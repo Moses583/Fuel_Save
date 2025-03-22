@@ -2,11 +2,14 @@ package com.ravemaster.fuelsave.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ravemaster.fuelsave.database.DBHelper;
 import com.ravemaster.fuelsave.databinding.StockListItemBinding;
 import com.ravemaster.fuelsave.interfaces.ViewStock;
 import com.ravemaster.fuelsave.models.Stock;
@@ -45,11 +48,31 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
         holder.binding.stockCard.setOnClickListener(v->{
             viewStock.viewStock(stockList.get(holder.getAdapterPosition()));
         });
+        holder.binding.stockCard.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                delete(holder.getAdapterPosition(), stockList.get(holder.getAdapterPosition()).stockName);
+                return true;
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return stockList.size();
+    }
+
+    public void delete(int itemId, String name){
+        DBHelper helper = new DBHelper(context);
+        boolean checkDelete = helper.deleteStock(name);
+        if (checkDelete){
+            Toast.makeText(context, "Stock deleted successfully", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "unable to delete stock", Toast.LENGTH_SHORT).show();
+        }
+        stockList.remove(itemId);
+        notifyItemRemoved(itemId);
     }
 
     class StockViewHolder extends RecyclerView.ViewHolder {
